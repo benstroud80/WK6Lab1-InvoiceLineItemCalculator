@@ -1,3 +1,6 @@
+#Benjamin Stroud
+#CIS261
+#Invoice Line Item Calculator
 #!?usr/bin/env python3
 
 def get_price():
@@ -6,18 +9,18 @@ def get_price():
             price = float(input('Enter price: '))
             return price
         except ValueError:
-            print('Invalid decimalnumber. Please try again.')
+            print('Invalid decimal number. Please try again.')
 
 def get_quantity():
     while True:
         try:
             quantity = int(input('Enter quantity:'))
             return quantity
-        except ValuError:
+        except ValueError:
             print('Invalid integer. Please try again.')
 
 def main():
-    print('The Invoice Line Item Calculaltor\n')
+    print('The Invoice Line Item Calculator\n')
 
     answer = 'y'
     while answer.lower() == 'y':
@@ -26,9 +29,17 @@ def main():
         quantity = get_quantity()
 
         #calculate the total
-        total = price * quantity()
+        total = price * quantity
 
         #display the results
         print()
         print('Price:       ', f"{price: .2f}")
-        print('QUANTITY')
+        print('QUANTITY:  ', quantity)
+        print('TOTAL: ', f"{total: .2f}")
+        answer = input('Enter another line item? (y/n):')
+        print()
+    
+    print('Bye!')
+
+if __name__ == '__main__':
+    main()
